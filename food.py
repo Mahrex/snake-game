@@ -17,6 +17,7 @@ class Food(Turtle):
         
     # everytime food will be recreated at a different location
     def refresh(self):
+        '''Function will produce a food at any random location on the screen'''
         random_x = random.randint(-600,600)
         random_y = random.randint(-325,325)
         self.goto(random_x,random_y)

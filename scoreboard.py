@@ -17,10 +17,18 @@ class Scoreboard(Turtle):
         
     # updating the scoreboard
     def update_scoreboard(self):
+        '''Function will update the scoreboard with the current score'''
         self.write(f'SCORE: {self.score}', align=ALIGNMENT,font=FONT)
+        
+    # game over condition
+    def game_over(self):
+        '''Function will say game-over after any collision'''
+        self.goto(0,0)
+        self.write('GAME OVER.', align=ALIGNMENT,font=FONT)
         
     # increasing the score everytime snake eats a food
     def increase_score(self):
+        '''Function will add 1 point with the current score on the scoreboard'''
         self.score += 1
         self.clear()
         self.update_scoreboard()

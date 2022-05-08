@@ -23,11 +23,21 @@ class Snake():
     def create_snake(self):
         '''Function will create a new snake with three blocks of squares.'''
         for position in STARTING_POSITIONS:
-            new_segment = Turtle('square')
-            new_segment.penup()
-            new_segment.color('#0af21d')
-            new_segment.goto(position)
-            self.segments.append(new_segment)
+            self.add_segment(position)
+            
+    # adding new segments to the snake
+    def add_segment(self, position):
+        '''Function will add a single block of square to the snake at end'''
+        new_segment = Turtle('square')
+        new_segment.penup()
+        new_segment.color('#0af21d')
+        new_segment.goto(position)
+        self.segments.append(new_segment)
+        
+    # extend new blocks after getting food
+    def extend(self):
+        '''Function will extend single blocks at the end pos of the snake'''
+        self.add_segment(self.segments[-1].position()) # getting hold of the position of the last segment and then adding sengments after that
             
     # creating the move method to move the snake
     def move(self):
